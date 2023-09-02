@@ -4,11 +4,11 @@ import { Footer } from "./components/footer";
 
 const App = () => {
   return (
-    <>
+    <div className="container w-4/5 mx-auto">
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

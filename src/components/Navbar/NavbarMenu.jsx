@@ -1,12 +1,24 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavbarMenu = () => {
+  const activeLink = "after:block after:w-auto after:h-0.5 after:opacity-5 after:bg-black";
+  const normalLink = "";
+  const navClass = "font-poppins text-base font-normal leading-normal";
+
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/about">About</Link>
-      <Link to="/signup">Sign Up</Link>
+    <div className="flex gap-12 place-items-center">
+      <NavLink to="/" className={({isActive}) => (isActive ? activeLink : normalLink)}>
+        <span className={navClass}>Home</span>
+      </NavLink>
+      <NavLink to="/contact" className={({isActive}) => (isActive ? activeLink : normalLink)}>
+        <span className={navClass}>Contact</span>
+      </NavLink>
+      <NavLink to="/about" className={({isActive}) => (isActive ? activeLink : normalLink)}>
+        <span className={navClass}>About</span>
+      </NavLink>
+      <NavLink to="/signup" className={({isActive}) => (isActive ? activeLink : normalLink)}>
+        <span className={navClass}>Sign Up</span>
+      </NavLink>
     </div>
   );
 };
