@@ -103,6 +103,7 @@ export default {
           500: "#F89118",
           600: "#C77414",
         },
+        searchInput: "#f5f5f5"
       },
     },
   },
