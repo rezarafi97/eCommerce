@@ -2,7 +2,7 @@ import NavbarContent from "./NavbarContent";
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="after:block after:w-full after:h-px after:bg-black after:opacity-5">
       <NavbarContent />
     </div>
   );
