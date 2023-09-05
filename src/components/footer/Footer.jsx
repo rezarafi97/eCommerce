@@ -1,5 +1,13 @@
+import { FooterContent, FooterCR } from "./";
+
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <div className="bg-black">
+      <FooterContent />
+
+      <FooterCR />
+    </div>
+  );
 };
 
 export default Footer;

@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-
 import { Drawer } from "@material-tailwind/react";
+
 import { CiCircleRemove, CiSearch } from "react-icons/ci";
+import { Navlink } from "../common";
 
 const NavbarDrawer = ({ open, closeDrawer }) => {
   const activeLink = "border-l-4 px-4";
@@ -21,32 +21,36 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
           </div>
 
           <div className="flex flex-col justify-center items-center flex-grow gap-6">
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? activeLink : normalLink)}
-            >
-              <span className={navClass}>Home</span>
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => (isActive ? activeLink : normalLink)}
-            >
-              <span className={navClass}>Contact</span>
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) => (isActive ? activeLink : normalLink)}
-            >
-              <span className={navClass}>About</span>
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className={({ isActive }) => (isActive ? activeLink : normalLink)}
-            >
-              <span className={navClass}>Sign Up</span>
-            </NavLink>
+            <Navlink
+              page="Home"
+              path="/"
+              activeLink={activeLink}
+              normalLink={normalLink}
+              navClass={navClass}
+            />
+            <Navlink
+              page="Contact"
+              path="/contact"
+              activeLink={activeLink}
+              normalLink={normalLink}
+              navClass={navClass}
+            />
+            <Navlink
+              page="About"
+              path="/about"
+              activeLink={activeLink}
+              normalLink={normalLink}
+              navClass={navClass}
+            />
+            <Navlink
+              page="Sign Up"
+              path="/signup"
+              activeLink={activeLink}
+              normalLink={normalLink}
+              navClass={navClass}
+            />
 
-            <div className="flex bg-searchInput rounded py-2 pl-5 pr-3 flex-auto">
+            <div className="flex md:hidden bg-searchInput rounded py-2 pl-5 pr-3 flex-auto">
               <input
                 type="search"
                 className="flex-auto bg-searchInput outline-none placeholder:font-poppins placeholder:text-xs placeholder:align-baseline placeholder:opacity-50"

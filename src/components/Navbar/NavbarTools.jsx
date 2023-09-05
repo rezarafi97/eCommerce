@@ -15,6 +15,8 @@ const NavbarTools = () => {
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
 
+  const iconsClass = "w-full h-full cursor-pointer"
+
   return (
     <>
       <div className="flex gap-6">
@@ -29,16 +31,16 @@ const NavbarTools = () => {
           </button>
         </div>
 
-        <div className="flex-auto flex gap-4 h-8 self-center">
-          <CiHeart className="w-full h-full cursor-pointer" />
+        <div className="flex-auto flex gap-4 h-6 lg:h-8 self-center">
+          <CiHeart className={iconsClass} />
 
-          <CiShoppingCart className="w-full h-full cursor-pointer" />
+          <CiShoppingCart className={iconsClass} />
 
-          <CiUser className="w-full h-full cursor-pointer" />
+          <CiUser className={iconsClass} />
 
           <button
             type="button"
-            className="md:hidden w-full h-full"
+            className="lg:hidden w-full h-full"
             onClick={openDrawer}
           >
             <CiMenuBurger className="w-full h-full" />
