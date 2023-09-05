@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { NavbarDrawer } from "./";
+
 import {
   CiSearch,
   CiHeart,
@@ -7,6 +10,11 @@ import {
 } from "react-icons/ci";
 
 const NavbarTools = () => {
+  const [open, setOpen] = useState(false);
+
+  const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
+
   return (
     <>
       <div className="flex gap-6">
@@ -22,19 +30,21 @@ const NavbarTools = () => {
         </div>
 
         <div className="flex-auto flex gap-4 h-8 self-center">
-          <button type="button" className="md:hidden w-full h-full">
-            <CiSearch className="w-full h-full" />
-          </button>
-
           <CiHeart className="w-full h-full cursor-pointer" />
 
           <CiShoppingCart className="w-full h-full cursor-pointer" />
 
           <CiUser className="w-full h-full cursor-pointer" />
 
-          <button type="button" className="md:hidden w-full h-full">
+          <button
+            type="button"
+            className="md:hidden w-full h-full"
+            onClick={openDrawer}
+          >
             <CiMenuBurger className="w-full h-full" />
           </button>
+
+          <NavbarDrawer open={open} closeDrawer={closeDrawer} />
         </div>
       </div>
     </>
