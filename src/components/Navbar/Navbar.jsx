@@ -1,4 +1,4 @@
-import {NavbarContent} from "./";
+import {NavbarContent} from ".";
 
 const Navbar = () => {
   return (

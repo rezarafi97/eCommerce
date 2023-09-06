@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavbarDrawer } from "./";
+import { NavbarDrawer } from ".";
 
 import {
   CiSearch,
