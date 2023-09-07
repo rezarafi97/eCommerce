@@ -1,12 +1,13 @@
+/* eslint-disable no-unused-vars */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.escuelajs.co/api/v1",
+    baseUrl: "https://fakestoreapi.com",
   }),
   tagTypes: ["PRODUCT"],
   endpoints: (builder) => ({
-    getProducts: builder.query({
+    getAllProducts: builder.query({
       query: () => "/products",
       providesTags: (result = [], error, arg) => [
         "PRODUCT",
@@ -42,13 +43,17 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["PRODUCT"],
     }),
+    getAllCategories: builder.query({
+      query: () => "/products/categories",
+    }),
   }),
 });
 
 export const {
-  useGetProductsQuery,
+  useGetAllProductsQuery,
   useGetProductQuery,
   useAddNewProductMutation,
   useEditProductMutation,
   useDeleteProductMutation,
+  useGetAllCategoriesQuery,
 } = apiSlice;

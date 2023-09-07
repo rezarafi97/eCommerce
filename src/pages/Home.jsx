@@ -1,7 +1,10 @@
+import { Category, SliderLand } from "../components/home";
+
 const Home = () => {
   return (
-    <div>
-      <p>Home Page</p>
+    <div className="flex">
+      <Category />
+      <SliderLand />
     </div>
   );
 };
