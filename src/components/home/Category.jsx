@@ -4,7 +4,6 @@ import { useGetAllCategoriesQuery } from "../../features/api/apiSlice";
 const Category = () => {
   const {
     data: cate = [],
-    isLoading,
     isSuccess,
     isError,
     error,
@@ -12,11 +11,9 @@ const Category = () => {
 
   let content;
 
-  if (isLoading) {
-    content = <p>Loading...</p>;
-  } else if (isSuccess) {
+  if (isSuccess) {
     content = cate.map((c, index) => (
-      <li key={index} className="mt-4">
+      <li key={index} className="mt-14 w-52">
         <Link to="/" className="font-poppins text-base font-normal">
           {c}
         </Link>
@@ -27,7 +24,8 @@ const Category = () => {
   }
 
   return (
-    <div className="pt-6 pr-4 border-r-2">
+    <div className="pt-10 pr-4 border-r-2">
+      <h4 className="font-poppins text-base font-semibold">Category</h4>
       <ul>{content}</ul>
     </div>
   );
