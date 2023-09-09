@@ -1,20 +1,58 @@
 import { Carousel } from "@material-tailwind/react";
+import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
 
 const SliderLand = () => {
+  const {
+    data: products = [],
+    isSuccess,
+    isError,
+    error,
+  } = useGetLimitedProductsQuery();
+
+  let content;
+
+  if (isSuccess) {
+    content = products.map((p) => (
+      <div className="w-full h-full flex" key={p.id}>
+        <div className="w-1/2">
+          <p>{p.title}</p>
+          <p>{p.description}</p>
+          <p>{p.price}$</p>
+        </div>
+        <div className="bg-white h-full w-1/2 flex justify-end">
+          <img src={p.image} alt={p.title} className="h-full" />
+        </div>
+      </div>
+    ));
+  } else if (isError) {
+    content = <div>{error}</div>;
+  }
+
   return (
-    <div className="mt-10 ml-11 w-full">
+    <div className="mt-10 ml-11 w-full h-80">
       <Carousel
         prevArrow={() => null}
         nextArrow={() => null}
-        autoplay={true}
+        // autoplay={true}
         autoplayDelay={10000}
         loop={true}
+        navigation={({ setActiveIndex, activeIndex, length }) => (
+          <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+            {new Array(length).fill("").map((_, i) => (
+              <span
+                key={i}
+                className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                  activeIndex === i
+                    ? "w-8 bg-blue-gray-600"
+                    : "w-4 bg-blue-gray-800"
+                }`}
+                onClick={() => setActiveIndex(i)}
+              />
+            ))}
+          </div>
+        )}
       >
-        <div className="w-full h-full bg-blue-gray-800">1</div>
-        <div className="w-full h-full bg-blue-gray-800">2</div>
-        <div className="w-full h-full bg-blue-gray-800">3</div>
-        <div className="w-full h-full bg-blue-gray-800">4</div>
-        <div className="w-full h-full bg-blue-gray-800">5</div>
+        {content}
       </Carousel>
     </div>
   );

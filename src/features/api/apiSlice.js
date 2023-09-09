@@ -14,6 +14,13 @@ export const apiSlice = createApi({
         ...result.map(({ id }) => ({ type: "PRODUCT", id })),
       ],
     }),
+    getLimitedProducts: builder.query({
+      query: () => "/products?limit=5",
+      providesTags: (result = [], error, arg) => [
+        "PRODUCT",
+        ...result.map(({ id }) => ({ type: "PRODUCT", id })),
+      ],
+    }),
     getProduct: builder.query({
       query: (initialProductId) => `/products/${initialProductId}`,
       providesTags: (result, error, arg) => [{ type: "PRODUCT", id: arg }],
@@ -51,6 +58,7 @@ export const apiSlice = createApi({
 
 export const {
   useGetAllProductsQuery,
+  useGetLimitedProductsQuery,
   useGetProductQuery,
   useAddNewProductMutation,
   useEditProductMutation,
