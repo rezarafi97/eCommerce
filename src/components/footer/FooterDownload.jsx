@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import { CiFacebook, CiTwitter, CiInstagram, CiLinkedin } from "react-icons/ci";
 
 const FooterDownload = () => {
+  const iconClass = "text-white text-2xl";
   return (
     <div>
       <ul>
-        <li className="text-white text-xl font-poppins font-medium mb-6">
+        <li className="text-white font-poppins text-xl font-medium mb-6">
           Download App
         </li>
         <li className="text-white font-poppins font-normal text-xs text-opacity-70 mb-2">
@@ -23,16 +24,16 @@ const FooterDownload = () => {
         <li>
           <div className="flex gap-6">
             <Link to="/">
-              <CiFacebook className="text-white text-2xl" />
+              <CiFacebook className={iconClass} />
             </Link>
             <Link to="/">
-              <CiTwitter className="text-white text-2xl" />
+              <CiTwitter className={iconClass} />
             </Link>
             <Link to="/">
-              <CiInstagram className="text-white text-2xl" />
+              <CiInstagram className={iconClass} />
             </Link>
             <Link to="/">
-              <CiLinkedin className="text-white text-2xl" />
+              <CiLinkedin className={iconClass} />
             </Link>
           </div>
         </li>

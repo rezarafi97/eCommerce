@@ -25,7 +25,6 @@ const Category = () => {
 
   return (
     <div className="pt-10 pr-4 border-r-2">
-      {/* <h4 className="font-poppins text-base font-semibold">Category</h4> */}
       <ul className="h-80 flex flex-col justify-between">{content}</ul>
     </div>
   );

@@ -1,11 +1,14 @@
-import { Category, SliderLand } from "../components/home";
+import { Category, SliderCategory, SliderLand } from "../components/home";
 
 const Home = () => {
   return (
-    <div className="flex">
-      <Category />
-      <SliderLand />
-    </div>
+    <>
+      <div className="flex mb-36">
+        <Category />
+        <SliderLand />
+      </div>
+      <SliderCategory />
+    </>
   );
 };
 

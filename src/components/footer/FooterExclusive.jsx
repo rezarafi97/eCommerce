@@ -1,6 +1,8 @@
 import { CiPaperplane } from "react-icons/ci";
 
 const FooterExclusive = () => {
+  const inputClass =
+    "bg-transparent border-0 outline-0 text-white flex-auto placeholder:font-poppins placeholder:text-opacity-40 placeholder:font-normal placeholder:text-base";
   return (
     <div>
       <ul>
@@ -17,7 +19,7 @@ const FooterExclusive = () => {
       <div className="bg-black rounded border py-2 px-3 flex-auto flex mt-3">
         <input
           type="email"
-          className="bg-transparent border-0 outline-0 text-white flex-auto placeholder:font-poppins placeholder:text-opacity-40 placeholder:font-normal placeholder:text-base"
+          className={inputClass}
           placeholder="Enter your email"
         />
 

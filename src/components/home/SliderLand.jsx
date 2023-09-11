@@ -46,7 +46,7 @@ const SliderLand = () => {
       <Carousel
         prevArrow={() => null}
         nextArrow={() => null}
-        // autoplay={true}
+        autoplay={true}
         autoplayDelay={10000}
         loop={true}
         navigation={({ setActiveIndex, activeIndex, length }) => (
