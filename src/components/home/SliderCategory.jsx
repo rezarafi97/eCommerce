@@ -35,7 +35,7 @@ const SliderCategory = () => {
     content = <div>Loading...</div>;
   } else if (isSuccess) {
     content = products.map((p) => (
-      <div className="h-96 w-64" key={p.id}>
+      <div className="h-96 w-64 inline-block mx-3 overflow-hidden" key={p.id}>
         <div className="w-full h-64 relative mb-4">
           <div>
             <div className="bg-red-500 px-3 py-1 inline-block rounded">
@@ -51,17 +51,17 @@ const SliderCategory = () => {
           <img src={p.image} className="w-40 h-40 absolute left-12 top-12" />
         </div>
         <div>
-          <h3>{p.title}</h3>
-          <div className="flex gap-3">
-            <p>${p.price}</p>
-            <p>${Math.floor(p.price * 80) / 100}</p>
+          <h3 className="font-poppins text-base font-medium">{p.title}</h3>
+          <div className="flex gap-3 my-2 font-poppins text-base font-medium">
+            <p className="text-red-600">${Math.floor(p.price * 80) / 100}</p>
+            <p className="line-through opacity-50">${p.price}</p>
           </div>
           <div className="flex gap-1">
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
+            <BsStarFill className="text-yellow-900" />
+            <BsStarFill className="text-yellow-900" />
+            <BsStarFill className="text-yellow-900" />
+            <BsStarFill className="text-yellow-900" />
+            <BsStarFill className="text-yellow-900" />
           </div>
         </div>
       </div>
@@ -115,7 +115,9 @@ const SliderCategory = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 flex gap-3.5 flex-wrap">{content}</div>
+      <div className="w-full overflow-hidden">
+        <div className="mt-10 truncate">{content}</div>
+      </div>
       <div className="flex justify-center">
         <button type="button" className="py-4 px-12 my-16 bg-red-600">
           <Link
