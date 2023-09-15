@@ -1,5 +1,6 @@
 import { Carousel } from "@material-tailwind/react";
 import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
+
 import { Link } from "react-router-dom";
 import { HiArrowLongRight } from "react-icons/hi2";
 
