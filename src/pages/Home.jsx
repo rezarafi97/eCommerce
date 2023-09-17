@@ -1,4 +1,4 @@
-import { Category, SliderCategory, SliderLand } from "../components/home";
+import { Category, MonthSale, Products, SliderLand, SpecialOffer, TodaySale } from "../components/home";
 
 const Home = () => {
   return (
@@ -7,7 +7,10 @@ const Home = () => {
         <Category />
         <SliderLand />
       </div>
-      <SliderCategory />
+      <TodaySale />
+      <MonthSale />
+      <SpecialOffer />
+      <Products />
     </>
   );
 };

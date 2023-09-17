@@ -1,15 +1,32 @@
 import PropTypes from "prop-types";
 import { BsSuitHeart, BsEye, BsStarFill } from "react-icons/bs";
 
-const Card = ({ p }) => {
+const Card = ({ p, discount }) => {
+  let content;
+
+  if (discount === 1) {
+    content = (
+      <div>
+        <div className="bg-red-500 px-3 py-1 inline-block rounded">
+          <p className="font-poppins text-white text-xs font-normal">-20%</p>
+        </div>
+      </div>
+    );
+  } else if (discount === 2) {
+    content = (
+      <div>
+        <div className="bg-success-700 px-3 py-1 inline-block rounded">
+          <p className="font-poppins text-white text-xs font-normal">NEW</p>
+        </div>
+      </div>
+    );
+  } else if (discount === 3) {
+    content = null;
+  }
   return (
     <div className="h-96 w-64 inline-block mx-3 last:mr-0 overflow-hidden rounded first:ml-0 snap-center">
       <div className="w-full h-64 relative mb-4 group">
-        <div>
-          <div className="bg-red-500 px-3 py-1 inline-block rounded">
-            <p className="font-poppins text-white text-xs font-normal">-20%</p>
-          </div>
-        </div>
+        {content}
         <div className="absolute top-3 right-3">
           <BsSuitHeart className="w-6 h-6" />
           <BsEye className="w-6 h-6 mt-2" />
@@ -43,6 +60,7 @@ const Card = ({ p }) => {
 
 Card.propTypes = {
   p: PropTypes.object,
+  discount: PropTypes.bool,
 };
 
 export default Card;
