@@ -41,7 +41,7 @@ const TodaySale = () => {
                 Flash Sales
               </p>
             </div>
-            <Timer timer={timer} setTimer={setTimer} timerEnd={timerEnd} />
+            <Timer timer={timer} setTimer={setTimer} timerEnd={timerEnd}  />
           </div>
         </div>
       </div>
