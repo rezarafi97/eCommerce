@@ -1,7 +1,5 @@
 const WhyUs = () => {
-  return (
-    <div>WhyUs</div>
-  )
-}
+  return <div className="mb-36">WhyUs</div>;
+};
 
-export default WhyUs
+export default WhyUs;

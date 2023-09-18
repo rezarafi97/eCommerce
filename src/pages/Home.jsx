@@ -1,4 +1,4 @@
-import { Category, MonthSale, Products, SliderLand, SpecialOffer, TodaySale } from "../components/home";
+import { Category, Featured, MonthSale, Products, SliderLand, SpecialOffer, TodaySale, WhyUs } from "../components/home";
 
 const Home = () => {
   return (
@@ -11,6 +11,8 @@ const Home = () => {
       <MonthSale />
       <SpecialOffer />
       <Products />
+      <Featured />
+      <WhyUs />
     </>
   );
 };

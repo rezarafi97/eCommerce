@@ -1,7 +1,37 @@
+import { Title, Product } from "../common";
+
 const Featured = () => {
   return (
-    <div>Featured</div>
-  )
-}
+    <div className="mb-36">
+      <div className="mb-16">
+        <Title title="Featured" />
+        <div className="flex items-end">
+          <p className="font-inter text-xl md:text-4xl font-semibold tracking-widest">
+            New Arrival
+          </p>
+        </div>
+      </div>
 
-export default Featured
+      <div className="h-[38rem] grid grid-cols-2 gap-2">
+        <div className="relative">
+          <Product productId="9" />
+        </div>
+        <div className="grid grid-rows-2 gap-2">
+          <div className="relative">
+            <Product productId="10" />
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="relative">
+              <Product productId="11" />
+            </div>
+            <div className="relative">
+              <Product productId="12" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Featured;

@@ -24,7 +24,7 @@ const Card = ({ p, discount }) => {
     content = null;
   }
   return (
-    <div className="h-96 w-64 inline-block mx-3 last:mr-0 overflow-hidden rounded first:ml-0 snap-center">
+    <div className="h-96 w-[17rem] inline-block mx-3 last:mr-0 overflow-hidden rounded first:ml-0 snap-center">
       <div className="w-full h-64 relative mb-4 group">
         {content}
         <div className="absolute top-3 right-3">
@@ -60,7 +60,7 @@ const Card = ({ p, discount }) => {
 
 Card.propTypes = {
   p: PropTypes.object,
-  discount: PropTypes.bool,
+  discount: PropTypes.number,
 };
 
 export default Card;

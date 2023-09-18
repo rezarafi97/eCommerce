@@ -21,8 +21,8 @@ const Products = () => {
     content = <div>Loading...</div>;
   } else if (isSuccess) {
     discounted = products.slice(0, 5);
-    normal = products.slice(5, 10);
-    newest = products.slice(10, 15);
+    normal = products.slice(5, 8);
+    newest = products.slice(9, 13);
     content = discounted.map((p) => <Card p={p} key={p.id} discount={1} />);
     content.push(normal.map((p) => <Card p={p} key={p.id} discount={3} />));
     content.push(newest.map((p) => <Card p={p} key={p.id} discount={2} />));
