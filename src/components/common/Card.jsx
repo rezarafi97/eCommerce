@@ -27,14 +27,14 @@ const Card = ({ p, discount }) => {
     content = null;
   }
   return (
-    <div className="h-96 w-[17rem] inline-block mr-6 overflow-hidden rounded snap-center">
-      <div className="w-full h-64 relative mb-4 group">
+    <div className="h-96 w-64 inline-block md:mr-6 overflow-hidden rounded snap-center mx-auto">
+      <div className="w-full h-2/3 relative mb-4 group">
         {content}
         <div className="absolute top-3 right-3">
           <BsSuitHeart className="w-6 h-6" />
           <BsEye className="w-6 h-6 mt-2" />
         </div>
-        <img src={p.image} className="w-40 h-40 absolute left-12 top-12" />
+        <img src={p.image} className="w-1/2 h-1/2 absolute left-14 top-14" />
         <button type="submit" className={buttonClass}>
           Add To Cart
         </button>

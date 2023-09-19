@@ -38,7 +38,7 @@ const Products = () => {
           Explore Our Products
         </p>
       </div>
-      <div>{content}</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">{content}</div>
       <div className="flex justify-center">
         <button type="button" className="py-4 px-12 my-16 bg-red-600">
           <Link

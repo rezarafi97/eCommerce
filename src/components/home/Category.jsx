@@ -13,8 +13,8 @@ const Category = () => {
 
   if (isSuccess) {
     content = cate.map((c, index) => (
-      <li key={index} className="w-52">
-        <Link to="/" className="font-poppins text-base font-normal">
+      <li key={index} className="lg:w-52">
+        <Link to="/" className="font-poppins text-xs md:text-base font-normal">
           {c}
         </Link>
       </li>
@@ -24,8 +24,8 @@ const Category = () => {
   }
 
   return (
-    <div className="pt-10 pr-4 border-r-2">
-      <ul className="h-80 flex flex-col justify-between">{content}</ul>
+    <div className="pt-10 lg:pr-4 lg:border-r-2">
+      <ul className="lg:h-80 flex lg:flex-col justify-between">{content}</ul>
     </div>
   );
 };

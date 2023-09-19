@@ -12,7 +12,7 @@ const Featured = () => {
         </div>
       </div>
 
-      <div className="h-[38rem] grid grid-cols-2 gap-2">
+      <div className="h-96 md:h-[38rem] grid grid-cols-2 gap-2">
         <div className="relative">
           <Product productId="9" />
         </div>

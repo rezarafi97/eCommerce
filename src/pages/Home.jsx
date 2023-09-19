@@ -3,7 +3,7 @@ import { Category, Featured, MonthSale, Products, SliderLand, SpecialOffer, Toda
 const Home = () => {
   return (
     <>
-      <div className="flex mb-36">
+      <div className="lg:flex lg:mb-36">
         <Category />
         <SliderLand />
       </div>
