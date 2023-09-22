@@ -34,10 +34,13 @@ const SpecialOffer = () => {
             {product.title}
           </p>
           <Timer timer={timer} setTimer={setTimer} timerEnd={timerEnd} />
-          <button type="button" className="py-4 px-12 my-6 md:my-10 lg:my-16 bg-red-600">
+          <button
+            type="button"
+            className="py-2 lg:py-4 px-8 lg:px-12 my-6 md:my-10 lg:my-16 bg-red-600"
+          >
             <Link
               to="/productdetail"
-              className="text-white font-poppins text-base font-medium"
+              className="text-white font-poppins text-xs lg:text-base font-medium"
             >
               Buy Now!
             </Link>

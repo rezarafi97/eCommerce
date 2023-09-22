@@ -2,7 +2,6 @@ import { Carousel } from "@material-tailwind/react";
 import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
 
 import { Link } from "react-router-dom";
-import { HiArrowLongRight } from "react-icons/hi2";
 
 const SliderLand = () => {
   const {
@@ -21,19 +20,16 @@ const SliderLand = () => {
     content = products.map((p) => (
       <div className="w-full h-full flex" key={p.id}>
         <div className="w-1/2 flex flex-col justify-around py-4">
-          <h4 className="font-inter text-5xl">{p.title}</h4>
+          <h4 className="font-inter text-xl">{p.title}</h4>
           <div className="flex gap-2">
             <Link to="/productdetail">
-              <span className="underline font-poppins text-base underline-offset-8 font-medium">
+              <span className="underline font-poppins text-xs underline-offset-8 font-medium">
                 Shop Now
               </span>
             </Link>
-            <Link to="/productdetail">
-              <HiArrowLongRight className="w-full h-full" />
-            </Link>
           </div>
         </div>
-        <div className="bg-white h-full w-1/2 flex justify-center">
+        <div className="bg-white h-3/5 w-1/2 flex justify-center">
           <img src={p.image} alt={p.title} className="h-full" />
         </div>
       </div>

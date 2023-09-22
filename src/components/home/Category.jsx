@@ -25,7 +25,7 @@ const Category = () => {
 
   return (
     <div className="pt-10 lg:pr-4 lg:border-r-2">
-      <ul className="lg:h-80 flex lg:flex-col justify-between">{content}</ul>
+      <ul className="h-80 lg:flex flex-col justify-between hidden">{content}</ul>
     </div>
   );
 };

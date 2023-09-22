@@ -13,18 +13,18 @@ const Featured = () => {
       </div>
 
       <div className="h-96 md:h-[38rem] grid grid-cols-2 gap-2">
-        <div className="relative">
+        <div className="relative border rounded">
           <Product productId="9" />
         </div>
         <div className="grid grid-rows-2 gap-2">
-          <div className="relative">
+          <div className="relative border rounded">
             <Product productId="10" />
           </div>
           <div className="grid grid-cols-2 gap-2">
-            <div className="relative">
+            <div className="relative border rounded">
               <Product productId="11" />
             </div>
-            <div className="relative">
+            <div className="relative border rounded">
               <Product productId="12" />
             </div>
           </div>

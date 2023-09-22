@@ -40,10 +40,10 @@ const Products = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">{content}</div>
       <div className="flex justify-center">
-        <button type="button" className="py-4 px-12 my-16 bg-red-600">
+        <button type="button" className="py-2 lg:py-4 px-8 lg:px-12 my-16 bg-red-600">
           <Link
             to="/productdetail"
-            className="text-white font-poppins text-base font-medium"
+            className="text-white font-poppins text-xs lg:text-base font-medium"
           >
             All Products
           </Link>

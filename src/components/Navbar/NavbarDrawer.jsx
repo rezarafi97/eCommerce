@@ -1,18 +1,49 @@
 import PropTypes from "prop-types";
-import { Drawer } from "@material-tailwind/react";
+import { Link, useLocation } from "react-router-dom";
 
+import { Drawer } from "@material-tailwind/react";
 import { CiCircleRemove, CiSearch } from "react-icons/ci";
+
 import { Navlink } from "../common";
+import { useGetAllCategoriesQuery } from "../../features/api/apiSlice";
 
 const NavbarDrawer = ({ open, closeDrawer }) => {
+  let location = useLocation();
+
   const activeLink = "border-l-4 px-4";
   const normalLink = "";
   const navClass =
     "font-poppins xl:text-base lg:text-sm font-normal leading-normal mx-auto";
 
+  const {
+    data: cate = [],
+    isSuccess,
+    isError,
+    error,
+  } = useGetAllCategoriesQuery();
+
+  let content;
+
+  if (isSuccess) {
+    content = cate.map((c, index) => (
+      <div key={index} className={location.pathname === "/" ? "block" : "hidden"}>
+        <Link to="/" className="font-poppins text-xs md:text-base font-normal">
+          {c}
+        </Link>
+      </div>
+    ));
+  } else if (isError) {
+    content = <div>{error}</div>;
+  }
+
   return (
     <>
-      <Drawer placement="top" open={open} onClose={closeDrawer} className="p-2">
+      <Drawer
+        placement="left"
+        open={open}
+        onClose={closeDrawer}
+        className="p-2"
+      >
         <div className="mb-2">
           <div className="flex justify-end">
             <button type="button" className="w-8 h-8" onClick={closeDrawer}>
@@ -59,6 +90,10 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
               <button type="submit">
                 <CiSearch className="flex-auto w-6 h-6" />
               </button>
+            </div>
+
+            <div className="flex flex-col justify-center items-center flex-grow gap-6">
+              {content}
             </div>
           </div>
         </div>

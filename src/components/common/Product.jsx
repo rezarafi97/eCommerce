@@ -20,7 +20,7 @@ const Product = ({ productId }) => {
     content = (
       <div>
         <img className="w-1/2 absolute top-0 right-0" src={product.image} />
-        <div className="absolute bottom-8 left-8">
+        <div className="absolute bottom-4 lg:bottom-8 lg:left-8">
           <div className="w-24 md:w-40 lg:w-52 xl:w-60">
             <h3 className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold truncate">
               {product.title}

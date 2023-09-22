@@ -32,10 +32,10 @@ const MonthSale = () => {
         </div>
 
         <div>
-          <button type="button" className="py-4 px-12 bg-red-600">
+          <button type="button" className="py-2 px-8 lg:py-4 lg:px-12 bg-red-600">
             <Link
               to="/productdetail"
-              className="text-white font-poppins text-base font-medium"
+              className="text-white font-poppins text-xs lg:text-base font-medium"
             >
               All Products
             </Link>
