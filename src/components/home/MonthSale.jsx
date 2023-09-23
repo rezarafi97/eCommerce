@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
-import { Title, Card } from "../common";
+import { Title, Card, Button } from "../common";
 
 const MonthSale = () => {
   const {
@@ -32,14 +31,7 @@ const MonthSale = () => {
         </div>
 
         <div>
-          <button type="button" className="py-2 px-8 lg:py-4 lg:px-12 bg-red-600">
-            <Link
-              to="/productdetail"
-              className="text-white font-poppins text-xs lg:text-base font-medium"
-            >
-              All Products
-            </Link>
-          </button>
+          <Button text="All Products" />
         </div>
       </div>
       <div className="mt-10 w-full whitespace-nowrap overflow-x-scroll snap-x mb-36">

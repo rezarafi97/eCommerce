@@ -84,10 +84,10 @@ const SignUp = () => {
         <span className="font-poppins text-base font-normal opacity-70">
           Already have a account?{" "}
           <Link
-            to="/signup"
+            to="/login"
             className="ml-4 font-medium underline underline-offset-8"
           >
-            Sign Up
+            Log In
           </Link>
         </span>
       </div>

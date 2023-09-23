@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-
 import { useGetAllProductsQuery } from "../../features/api/apiSlice";
-import { Card, Title } from "../common";
+import { Button, Card, Title } from "../common";
 
 const Products = () => {
   const {
@@ -39,15 +37,8 @@ const Products = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">{content}</div>
-      <div className="flex justify-center">
-        <button type="button" className="py-2 lg:py-4 px-8 lg:px-12 my-16 bg-red-600">
-          <Link
-            to="/productdetail"
-            className="text-white font-poppins text-xs lg:text-base font-medium"
-          >
-            All Products
-          </Link>
-        </button>
+      <div className="flex justify-center my-16">
+        <Button text="All Products" />
       </div>
     </div>
   );

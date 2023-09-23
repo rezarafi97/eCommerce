@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { endOfToday } from "date-fns";
 
-import { Link } from "react-router-dom";
+
 import { useGetProductQuery } from "../../features/api/apiSlice";
-
-import { Timer } from "../common";
+import { Button, Timer } from "../common";
 
 const SpecialOffer = () => {
   const [timer, setTimer] = useState({});
 
-  const timerEnd = endOfToday();
+
 
   const {
     data: product,
@@ -33,18 +31,10 @@ const SpecialOffer = () => {
           <p className="font-inter text-base md:text-xl lg:text-5xl font-semibold my-2 md:my-8">
             {product.title}
           </p>
-          <Timer timer={timer} setTimer={setTimer} timerEnd={timerEnd} />
-          <button
-            type="button"
-            className="py-2 lg:py-4 px-8 lg:px-12 my-6 md:my-10 lg:my-16 bg-red-600"
-          >
-            <Link
-              to="/productdetail"
-              className="text-white font-poppins text-xs lg:text-base font-medium"
-            >
-              Buy Now!
-            </Link>
-          </button>
+          <Timer timer={timer} setTimer={setTimer} />
+          <div className="my-6 md:my-10 lg:my-16 ">
+            <Button text="Buy Now!" />
+          </div>
         </div>
         <div className="w-1/2">
           <img src={product.image} />

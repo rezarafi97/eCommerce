@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { intervalToDuration } from "date-fns";
+import { intervalToDuration, endOfToday } from "date-fns";
 import PropTypes from "prop-types";
 
-const Timer = ({ timer, setTimer, timerEnd }) => {
+const Timer = ({ timer, setTimer }) => {
   const titleClass = "font-poppins text-[0.5rem] md:text-[0.6rem] lg:text-xs font-medium";
   const dotsClass = "text-red-500 text-lg md:text-xl lg:text-3xl font-black";
   const timerClass = "font-inter text-xl md:text-2xl lg:text-4xl font-bold tracking-widest";
@@ -12,7 +12,7 @@ const Timer = ({ timer, setTimer, timerEnd }) => {
       setTimer(
         intervalToDuration({
           start: new Date(),
-          end: timerEnd,
+          end: endOfToday(),
         })
       );
     }, 1000);
