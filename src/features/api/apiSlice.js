@@ -2,9 +2,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://fakestoreapi.com",
-  }),
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://fakestoreapi.com" }),
   tagTypes: ["PRODUCT"],
   endpoints: (builder) => ({
     getAllProducts: builder.query({
@@ -64,4 +63,6 @@ export const {
   useEditProductMutation,
   useDeleteProductMutation,
   useGetAllCategoriesQuery,
+  useGetAllUsersQuery,
+  useAddNewUserMutation,
 } = apiSlice;

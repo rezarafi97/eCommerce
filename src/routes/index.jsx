@@ -13,6 +13,7 @@ import {
   Contact,
   ProductDetail,
   Home,
+  AllProducts,
 } from "../pages";
 
 export const router = createBrowserRouter([
@@ -71,7 +72,11 @@ export const router = createBrowserRouter([
         element: <ProductDetail />,
         errorElement: <Error />,
       },
-    ]
+      {
+        path: "/allproducts",
+        element: <AllProducts />,
+        errorElement: <Error />,
+      },
+    ],
   },
-  
 ]);

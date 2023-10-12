@@ -43,7 +43,7 @@ const TodaySale = () => {
       <div className="mt-10 w-full whitespace-nowrap overflow-x-scroll snap-x">
         {content}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center my-16">
         <Button text="All Products" />
       </div>
     </div>

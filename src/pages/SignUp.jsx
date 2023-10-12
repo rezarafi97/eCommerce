@@ -1,20 +1,18 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
+import { signupSchema } from "../validation/signupValidation";
+import { useDispatch } from "react-redux";
+
+import { login } from "../features/reducers/userSlice";
 
 const SignUp = () => {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const inputClass =
     "border-b outline-0 border-gray-400 focus:border-gray-800 pl-4 pr-20 py-2";
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div className="my-24">
@@ -26,60 +24,109 @@ const SignUp = () => {
           Enter your details below
         </p>
       </div>
-      <form
-        className="flex flex-col items-center gap-10 w-96 mx-auto mb-8"
-        onSubmit={submitHandler}
-      >
-        <input
-          type="text"
-          value={fname}
-          onChange={(e) => setFname(e.target.value)}
-          className={inputClass}
-          placeholder="Firstname"
-        />
-        <input
-          type="text"
-          value={lname}
-          onChange={(e) => setLname(e.target.value)}
-          className={inputClass}
-          placeholder="Lastname"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={inputClass}
-          placeholder="Email"
-        />
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className={inputClass}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={inputClass}
-          placeholder="Password"
-        />
-        <input
-          type="password"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-          className={inputClass}
-          placeholder="Confirm Password"
-        />
+      <Formik
+        initialValues={{
+          firstname: "",
+          lastname: "",
+          email: "",
+          username: "",
+          password: "",
+          passwordConfirm: "",
+        }}
+        validationSchema={signupSchema}
+        onSubmit={() => {
+          dispatch(login());
 
-        <button
-          type="submit"
-          className="px-20 py-4 bg-red-600 text-base font-poppins text-white"
-        >
-          Create Account
-        </button>
-      </form>
+          navigate("/");
+        }}
+      >
+        <Form className="flex flex-col items-center gap-10 w-96 mx-auto mb-8">
+          <div>
+            <Field
+              type="text"
+              name="firstname"
+              placeholder="Firstname"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="firstname"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <div>
+            <Field
+              type="text"
+              name="lastname"
+              placeholder="Lastname"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="lastname"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <div>
+            <Field
+              type="email"
+              name="email"
+              placeholder="Email"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="email"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <div>
+            <Field
+              type="text"
+              name="username"
+              placeholder="Username"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="username"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <div>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Password"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="password"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <div>
+            <Field
+              type="password"
+              name="passwordConfirm"
+              placeholder="Confirm Password"
+              className={inputClass}
+            />
+            <ErrorMessage
+              name="passwordConfirm"
+              render={(msg) => <div className="text-red-700">{msg}</div>}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="px-20 py-4 bg-red-600 text-base font-poppins text-white"
+          >
+            Create Account
+          </button>
+        </Form>
+      </Formik>
       <div className="text-center">
         <span className="font-poppins text-base font-normal opacity-70">
           Already have a account?{" "}
