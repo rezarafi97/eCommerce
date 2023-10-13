@@ -43,6 +43,9 @@ const NavbarTools = () => {
   const iconsClass = "w-full h-full cursor-pointer";
   const inputClass =
     "flex-auto bg-searchInput outline-none placeholder:font-poppins placeholder:text-xs placeholder:align-baseline placeholder:opacity-50";
+  const dropdownClass =
+    "absolute right-1 top-10 bg-black opacity-40 rounded w-56 flex flex-col py-4 pl-6 justify-center items-start gap-3 z-10";
+  const dropdownMenuClass = "flex flex-auto gap-4 cursor-pointer";
 
   return (
     <>
@@ -68,9 +71,9 @@ const NavbarTools = () => {
                 <CiUser className={iconsClass} onClick={dropdownToggle} />
               ) : null}
               {dropdown ? (
-                <div className="absolute right-1 top-10 bg-black opacity-40 rounded w-56 flex flex-col py-4 pl-6 justify-center items-start gap-3 z-10">
+                <div className={dropdownClass}>
                   <div
-                    className="flex flex-auto gap-4 cursor-pointer"
+                    className={dropdownMenuClass}
                     onClick={() => {
                       navigate("/account");
                       setDropdown(false);
@@ -82,7 +85,7 @@ const NavbarTools = () => {
                     </p>
                   </div>
                   <div
-                    className="flex flex-auto gap-4 cursor-pointer"
+                    className={dropdownMenuClass}
                     onClick={() => {
                       navigate("/cart");
                       setDropdown(false);
@@ -92,9 +95,12 @@ const NavbarTools = () => {
                     <p className="text-white">My Order</p>
                   </div>
                   <div
-                    className="flex flex-auto gap-4 cursor-pointer"
+                    className={dropdownMenuClass}
                     onClick={() => {
                       dispatch(logout());
+                      {
+                        dropdownMenuClass;
+                      }
                       setDropdown(false);
                     }}
                   >
