@@ -60,7 +60,7 @@ const Contact = () => {
           />
 
           <div className="relative">
-            <button className="absolute right-0 px-12 py-4 bg-red-600 font-poppins text-base font-medium text-white">
+            <button type="submit" className="absolute right-0 px-12 py-4 bg-red-600 font-poppins text-base font-medium text-white">
               Send Message
             </button>
           </div>
