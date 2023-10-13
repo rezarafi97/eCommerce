@@ -4,8 +4,8 @@ const About = () => {
   const textClass = "font-poppins text-base font-normal mb-6 text-justify";
   return (
     <div>
-      <div className="w-1/2 mb-32">
-        <h2 className="font-inter text-5xl font-semibold tracking-widest mt-20 mb-10">
+      <div className="lg:w-1/2 mb-32 mt-20">
+        <h2 className="font-inter text-5xl font-semibold tracking-widest mb-10">
           Our Story
         </h2>
 
