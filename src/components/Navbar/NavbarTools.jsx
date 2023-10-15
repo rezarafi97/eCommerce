@@ -65,8 +65,14 @@ const NavbarTools = () => {
         location.pathname === "/login" ? null : (
           <div className="relative">
             <div className="flex-auto flex gap-4 h-6 lg:h-8 self-center">
-              <CiHeart className={iconsClass} />
-              <CiShoppingCart className={iconsClass} />
+              <CiHeart
+                className={iconsClass}
+                onClick={() => navigate("/wishlist")}
+              />
+              <CiShoppingCart
+                className={iconsClass}
+                onClick={() => navigate("/cart")}
+              />
               {login ? (
                 <CiUser className={iconsClass} onClick={dropdownToggle} />
               ) : null}

@@ -2,7 +2,7 @@ import { Navlink } from "../common";
 
 const NavbarMenu = () => {
   const activeLink =
-    "after:block after:w-auto after:h-px after:opacity-6 after:bg-white";
+    "after:block after:w-auto after:h-px after:opacity-6 after:bg-black";
   const normalLink = "";
   const navClass =
     "font-poppins xl:text-base lg:text-xs font-normal leading-normal";
