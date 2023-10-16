@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import { useGetProductQuery } from "../features/api/apiSlice";
+import { Button } from "../components/common";
 
 const Cart = () => {
   const tableRowClass = "flex justify-between py-6 px-10 rounded shadow mb-10";
+  const linkClass =
+    "py-4 px-12 rounded border border-black border-opacity-50 font-poppins text-base font-medium";
 
   const {
     data: product,
@@ -36,7 +40,12 @@ const Cart = () => {
           </p>
         </td>
         <td className="w-40 place-self-center">
-          <p className="w-24 truncate font-poppins font-normal text-base">1</p>
+          <input
+            type="number"
+            defaultValue={1}
+            className="w-20 font-poppins font-normal text-base rounded border border-black border-opacity-50 pl-4"
+            alt="Quantity"
+          />
         </td>
         <td className="w-40 place-self-center">
           <p className="w-24 truncate font-poppins font-normal text-base">
@@ -71,7 +80,55 @@ const Cart = () => {
         </thead>
         <tbody>{content}</tbody>
       </table>
-      <div></div>
+      <div className="flex justify-between mb-20">
+        <Link to="/" className={linkClass}>
+          Return To Shop
+        </Link>
+        <Link to="/cart" className={linkClass}>
+          Update Cart
+        </Link>
+      </div>
+      <div className="flex justify-between mb-32">
+        <div>
+          <input
+            type="text"
+            className="py-4 pl-6 rounded border border-black mr-4"
+            placeholder="Coupan Code"
+          />
+          <Button text="Apply Coupon" />
+        </div>
+
+        <div className="border-2 rounded border-black w-[30rem] py-8 px-6">
+          <h3 className="font-poppins text-xl font-medium mb-6">Cart Total</h3>
+
+          <div className="flex justify-between border-b border-black border-opacity-40 pb-4 mb-4">
+            <p>Subtotal:</p>
+
+            <p>1500$</p>
+          </div>
+
+          <div className="flex justify-between border-b border-black border-opacity-40 pb-4 mb-4">
+            <p>Shipping:</p>
+
+            <p>Free</p>
+          </div>
+
+          <div className="flex justify-between mb-4">
+            <p>Total:</p>
+
+            <p>1500$</p>
+          </div>
+
+          <div className="flex justify-center">
+            <Link
+              to="/checkout"
+              className="font-poppins text-base font-medium text-white py-4 px-12 bg-red-600"
+            >
+              Procees to checkout
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
