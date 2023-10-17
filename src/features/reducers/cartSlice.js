@@ -8,7 +8,7 @@ export const cartSlice = createSlice({
     quantity: 0,
   },
   reducers: {
-
+    
   },
 });
 
