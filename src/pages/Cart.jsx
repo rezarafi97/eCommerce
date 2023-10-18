@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useGetProductQuery } from "../features/api/apiSlice";
+
+import { useDispatch, useSelector } from "react-redux";
+// import { useGetProductQuery } from "../features/api/apiSlice";
+
 import { Button } from "../components/common";
+import {
+  addToCart,
+  decreaseCart,
+  removeFromCart,
+  getTotals,
+  selectAll,
+} from "../features/reducers/cartSlice";
 
 const Cart = () => {
   const tableRowClass =
@@ -8,62 +19,25 @@ const Cart = () => {
   const linkClass =
     "py-2 lg:py-4 px-6 lg:px-12 rounded border border-black border-opacity-50 font-poppins text-xs lg:text-base font-medium";
 
-  const {
-    data: product,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetProductQuery(1);
+  const cart = useSelector(selectAll);
+  const { cartTotalAmount } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  let content;
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
 
-  if (isLoading) {
-    content = (
-      <tr>
-        <td>
-          <p>Loading...</p>
-        </td>
-      </tr>
-    );
-  } else if (isSuccess) {
-    content = (
-      <tr className={tableRowClass}>
-        <td className="w-20 lg:w-40 flex items-center gap-5">
-          <img src={product.image} className="w-8" />
-          <p className="truncate font-poppins font-normal text-xs md:text-base">
-            {product.title}
-          </p>
-        </td>
-        <td className="w-20 lg:w-40 place-self-center">
-          <p className="font-poppins font-normal text-xs md:text-base">
-            {product.price}
-          </p>
-        </td>
-        <td className="w-20 lg:w-40 place-self-center">
-          <input
-            type="number"
-            defaultValue={1}
-            className="w-12 font-poppins font-normal text-xs md:text-base rounded border border-black border-opacity-50 pl-4"
-            alt="Quantity"
-          />
-        </td>
-        <td className="w-20 lg:w-40 place-self-center">
-          <p className="font-poppins font-normal text-xs md:text-base">
-            {product.price}
-          </p>
-        </td>
-      </tr>
-    );
-  } else if (isError) {
-    content = (
-      <tr>
-        <td>
-          <p>{error}</p>
-        </td>
-      </tr>
-    );
-  }
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleDecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
 
   return (
     <div className="my-10">
@@ -74,20 +48,76 @@ const Cart = () => {
         <thead>
           <tr className={tableRowClass}>
             <th className="w-20 lg:w-40 text-left">
-              <p className="font-poppins font-medium text-xs md:text-base">Product</p>
+              <p className="font-poppins font-medium text-xs md:text-base">
+                Product
+              </p>
             </th>
             <th className="w-20 lg:w-40 text-left">
-              <p className="font-poppins font-medium text-xs md:text-base">Price</p>
+              <p className="font-poppins font-medium text-xs md:text-base">
+                Price
+              </p>
             </th>
             <th className="w-20 lg:w-40 text-left">
-              <p className="font-poppins font-medium text-xs md:text-base">Quantity</p>
+              <p className="font-poppins font-medium text-xs md:text-base">
+                Quantity
+              </p>
             </th>
             <th className="w-20 lg:w-40 text-left">
-              <p className="font-poppins font-medium text-xs md:text-base">Subtotal</p>
+              <p className="font-poppins font-medium text-xs md:text-base">
+                Subtotal
+              </p>
             </th>
           </tr>
         </thead>
-        <tbody>{content}</tbody>
+        <tbody>
+          {cart.map((item) => (
+            <tr key={item.id} className={tableRowClass}>
+              <td className="w-20 lg:w-40 flex items-center gap-5">
+                <img src={item.image} className="w-8" />
+                <p className="truncate font-poppins font-normal text-xs md:text-base">
+                  {item.title}
+                </p>
+              </td>
+              <td className="w-20 lg:w-40 place-self-center">
+                <p className="font-poppins font-normal text-xs md:text-base">
+                  {item.price}$
+                </p>
+              </td>
+              <td className="flex gap-2 items-center w-20 lg:w-40 place-self-center">
+                <button
+                  data-action="increment"
+                  onClick={() => handleAddToCart(item)}
+                >
+                  <span className="font-poppins font-normal text-xs md:text-base">
+                    +
+                  </span>
+                </button>
+                <p className="font-poppins font-normal text-xs md:text-base">
+                  {item.cartQty}
+                </p>
+                <button
+                  data-action="decrement"
+                  onClick={() => handleDecreaseCart(item)}
+                >
+                  <span className="font-poppins font-normal text-xs md:text-base">
+                    −
+                  </span>
+                </button>
+              </td>
+              <td className="flex gap-4 w-20 lg:w-40 place-self-center">
+                <p className="font-poppins font-normal text-xs md:text-base">
+                  {item.price * item.cartQty}$
+                </p>
+                <p
+                  className="text-xs md:text-base text-red-900 font-black cursor-pointer"
+                  onClick={() => handleRemoveFromCart(item)}
+                >
+                  X
+                </p>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       <div className="flex justify-between mb-20">
         <Link to="/allproducts" className={linkClass}>
@@ -113,7 +143,7 @@ const Cart = () => {
           <div className="flex justify-between border-b border-black border-opacity-40 pb-4 mb-4">
             <p>Subtotal:</p>
 
-            <p>1500$</p>
+            <p>{cartTotalAmount}</p>
           </div>
 
           <div className="flex justify-between border-b border-black border-opacity-40 pb-4 mb-4">
@@ -125,7 +155,7 @@ const Cart = () => {
           <div className="flex justify-between mb-4">
             <p>Total:</p>
 
-            <p>1500$</p>
+            <p>{cartTotalAmount}</p>
           </div>
 
           <div className="flex justify-center">

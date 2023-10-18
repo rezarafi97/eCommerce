@@ -1,10 +1,20 @@
 import PropTypes from "prop-types";
 import { BsSuitHeart, BsEye, BsStarFill } from "react-icons/bs";
 
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/reducers/cartSlice";
+
 const Card = ({ p, discount }) => {
   const badgeClass = "font-poppins text-white text-xs font-normal";
   const buttonClass =
     "group-hover:opacity-100 opacity-0 w-full h-10 absolute bottom-0 inset-x-0 bg-black text-white font-poppins text-base font-medium rounded-b transition duration-500 ease-in-out";
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+  };
+
   let content;
 
   if (discount === 1) {
@@ -35,7 +45,11 @@ const Card = ({ p, discount }) => {
           <BsEye className="w-6 h-6 mt-2" />
         </div>
         <img src={p.image} className="w-1/2 h-1/2 absolute left-14 top-14" />
-        <button type="submit" className={buttonClass}>
+        <button
+          type="submit"
+          className={buttonClass}
+          onClick={() => handleAddToCart({ ...p, cartQty: 1 })}
+        >
           Add To Cart
         </button>
       </div>

@@ -18,10 +18,14 @@ import { selectLogin } from "../../features/reducers/userSlice";
 import { useDispatch } from "react-redux";
 import { logout } from "../../features/reducers/userSlice";
 
+import { selectAll } from "../../features/reducers/cartSlice";
+
 const NavbarTools = () => {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [login, setLogin] = useState(null);
+
+  const cart = useSelector(selectAll);
 
   const log = useSelector(selectLogin);
   const dispatch = useDispatch();
@@ -64,7 +68,7 @@ const NavbarTools = () => {
         {location.pathname === "/signup" ||
         location.pathname === "/login" ? null : (
           <div className="relative">
-            <div className="flex-auto flex gap-4 h-6 lg:h-8 self-center">
+            <div className="flex-auto flex gap-4 h-6 lg:h-8 self-center relative">
               <CiHeart
                 className={iconsClass}
                 onClick={() => navigate("/wishlist")}
@@ -73,6 +77,11 @@ const NavbarTools = () => {
                 className={iconsClass}
                 onClick={() => navigate("/cart")}
               />
+              {cart.length === 0 ? null : (
+                <div className="absolute left-[4.5rem] w-4 h-4 bg-red-600 text-center rounded-full">
+                  <p className="font-poppins text-xs font-normal text-white">{cart.length}</p>
+                </div>
+              )}
               {login ? (
                 <CiUser className={iconsClass} onClick={dropdownToggle} />
               ) : null}
