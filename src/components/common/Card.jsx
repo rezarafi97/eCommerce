@@ -41,7 +41,7 @@ const Card = ({ p, discount }) => {
       <div className="w-full h-2/3 relative mb-4 group">
         {content}
         <div className="absolute top-3 right-3">
-          <BsSuitHeart className="w-6 h-6" />
+          <BsSuitHeart className="w-6 h-6 cursor-pointer" onClick={() => console.log("wishlist")} />
           <BsEye className="w-6 h-6 mt-2" />
         </div>
         <img src={p.image} className="w-1/2 h-1/2 absolute left-14 top-14" />

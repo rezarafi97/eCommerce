@@ -19,6 +19,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../features/reducers/userSlice";
 
 import { selectAll } from "../../features/reducers/cartSlice";
+import { selectWishlist } from "../../features/reducers/wishlistSlice";
 
 const NavbarTools = () => {
   const [open, setOpen] = useState(false);
@@ -26,6 +27,7 @@ const NavbarTools = () => {
   const [login, setLogin] = useState(null);
 
   const cart = useSelector(selectAll);
+  const wishlist = useSelector(selectWishlist);
 
   const log = useSelector(selectLogin);
   const dispatch = useDispatch();
@@ -73,6 +75,11 @@ const NavbarTools = () => {
                 className={iconsClass}
                 onClick={() => navigate("/wishlist")}
               />
+              {wishlist.length === 0 ? null : (
+                <div className="absolute left-6 w-4 h-4 bg-red-600 text-center rounded-full">
+                  <p className="font-poppins text-xs font-normal text-white">{wishlist.length}</p>
+                </div>
+              )}
               <CiShoppingCart
                 className={iconsClass}
                 onClick={() => navigate("/cart")}
