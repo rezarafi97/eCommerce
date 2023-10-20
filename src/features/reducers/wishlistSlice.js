@@ -37,9 +37,8 @@ const wishlistSlice = createSlice({
   },
 });
 
-export const { selectAll: selectWishlist } = wishlistAdapter.getSelectors(
-  (state) => state.wishlist
-);
+export const { selectAll: selectWishlist, selectById: selectWishlistById } =
+  wishlistAdapter.getSelectors((state) => state.wishlist);
 
 export const { populateWishlist, addToWishlist, removeFromWishlist } =
   wishlistSlice.actions;
