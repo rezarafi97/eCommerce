@@ -3,7 +3,8 @@ import { CiPaperplane } from "react-icons/ci";
 const FooterExclusive = () => {
   const inputClass =
     "bg-transparent border-0 outline-0 text-white flex-auto placeholder:font-poppins placeholder:text-opacity-40 placeholder:font-normal placeholder:text-base";
-  return (
+  
+    return (
     <div>
       <ul>
         <li className="text-white font-inter font-bold text-2xl tracking-wider">

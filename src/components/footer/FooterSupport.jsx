@@ -1,5 +1,6 @@
 const FooterSupport = () => {
   const listClass = "text-white text-base font-poppins font-normal mb-4";
+  
   return (
     <div>
       <ul>

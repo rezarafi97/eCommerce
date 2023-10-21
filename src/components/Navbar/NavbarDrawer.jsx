@@ -14,6 +14,9 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
   const normalLink = "";
   const navClass =
     "font-poppins xl:text-base lg:text-sm font-normal leading-normal mx-auto";
+  const inputClass =
+    "flex-auto bg-searchInput outline-none placeholder:font-poppins placeholder:text-xs placeholder:align-baseline placeholder:opacity-50";
+  const divClass = "flex flex-col justify-center items-center flex-grow gap-6"
 
   const {
     data: cate = [],
@@ -26,7 +29,10 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
 
   if (isSuccess) {
     content = cate.map((c, index) => (
-      <div key={index} className={location.pathname === "/" ? "block" : "hidden"}>
+      <div
+        key={index}
+        className={location.pathname === "/" ? "block" : "hidden"}
+      >
         <Link to="/" className="font-poppins text-xs md:text-base font-normal">
           {c}
         </Link>
@@ -51,7 +57,7 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
             </button>
           </div>
 
-          <div className="flex flex-col justify-center items-center flex-grow gap-6">
+          <div className={divClass}>
             <Navlink
               page="Home"
               path="/"
@@ -84,7 +90,7 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
             <div className="flex md:hidden bg-searchInput rounded py-2 pl-5 pr-3 flex-auto">
               <input
                 type="search"
-                className="flex-auto bg-searchInput outline-none placeholder:font-poppins placeholder:text-xs placeholder:align-baseline placeholder:opacity-50"
+                className={inputClass}
                 placeholder="What are you looking for?"
               />
               <button type="submit">
@@ -92,7 +98,7 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
               </button>
             </div>
 
-            <div className="flex flex-col justify-center items-center flex-grow gap-6">
+            <div className={divClass}>
               {content}
             </div>
           </div>

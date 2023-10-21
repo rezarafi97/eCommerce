@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { useGetProductQuery } from "../../features/api/apiSlice";
 
 const Product = ({ productId }) => {
+  const titleClass =
+    "font-inter text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold truncate";
+  const shopClass =
+    "underline font-poppins text-base underline-offset-8 font-medium";
+
   const {
     data: product,
     isLoading,
@@ -22,9 +27,7 @@ const Product = ({ productId }) => {
         <img className="w-1/2 absolute top-0 right-0" src={product.image} />
         <div className="absolute bottom-4 lg:bottom-8 lg:left-8">
           <div className="w-24 md:w-40 lg:w-52 xl:w-60">
-            <h3 className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold truncate">
-              {product.title}
-            </h3>
+            <h3 className={titleClass}>{product.title}</h3>
           </div>
           <div className="hidden xl:inline-block w-60 h-11">
             <p className="my-4 font-poppins text-sm font-normal truncate">
@@ -32,9 +35,7 @@ const Product = ({ productId }) => {
             </p>
           </div>
           <Link to="/productdetail">
-            <span className="underline font-poppins text-base underline-offset-8 font-medium">
-              Shop Now
-            </span>
+            <span className={shopClass}>Shop Now</span>
           </Link>
         </div>
       </div>
