@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 const CartTotal = ({ cartTotalAmount }) => {
   const subClass =
     "flex justify-between border-b border-black border-opacity-40 pb-4 mb-4";
-    const linkClass = "font-poppins text-xs 2xl:text-base font-medium text-white py-4 px-12 bg-red-600"
+  const linkClass =
+    "font-poppins text-xs 2xl:text-base font-medium text-white py-4 px-12 bg-red-600";
 
   return (
     <div className="border-2 rounded border-black w-72 2xl:w-[30rem] py-8 px-6">
@@ -29,10 +30,7 @@ const CartTotal = ({ cartTotalAmount }) => {
       </div>
 
       <div className="flex justify-center">
-        <Link
-          to="/checkout"
-          className={linkClass}
-        >
+        <Link to="/checkout" className={linkClass}>
           Procees to checkout
         </Link>
       </div>

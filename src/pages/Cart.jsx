@@ -7,7 +7,6 @@ import {
   TableHead,
   TableBody,
   CartLink,
-  CartCoupon,
   CartTotal,
 } from "../components/cart";
 
@@ -36,9 +35,7 @@ const Cart = () => {
 
       <CartLink />
 
-      <div className="lg:flex lg:justify-between mb-32">
-        <CartCoupon />
-
+      <div className="flex justify-center mb-32">
         <CartTotal cartTotalAmount={cartTotalAmount} />
       </div>
     </div>
