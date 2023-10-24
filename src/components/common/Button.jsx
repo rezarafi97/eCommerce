@@ -7,7 +7,7 @@ const Button = ({ text }) => {
 
   return (
     <>
-      <Link to="/productdetail" className={buttonClass}>
+      <Link to="/allproducts" className={buttonClass}>
         {text}
       </Link>
     </>
