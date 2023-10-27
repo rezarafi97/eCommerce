@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const cartAdapter = createEntityAdapter();
 const initialState = cartAdapter.getInitialState({
@@ -24,8 +25,10 @@ const cartSlice = createSlice({
 
       if (productExist) {
         state.entities[action.payload.id].cartQty += 1;
+        toast.success("You added another product to your cart");
       } else {
         cartAdapter.addOne(state, action.payload);
+        toast.success("The Product has been added to your cart");
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.entities));
@@ -54,8 +57,10 @@ const cartSlice = createSlice({
 
       if (product.cartQty > 1) {
         product.cartQty -= 1;
+        toast.warn("You subtracted one product from your cart");
       } else if (product.cartQty === 1) {
         cartAdapter.removeOne(state, action.payload.id);
+        toast.warn("The Product has been removed to your cart");
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.entities));
@@ -64,11 +69,14 @@ const cartSlice = createSlice({
       cartAdapter.removeOne(state, action.payload.id);
 
       localStorage.setItem("cartItems", JSON.stringify(state.entities));
+      toast.warn("The Product has been removed to your cart");
     },
   },
 });
 
-export const {selectAll, selectById} = cartAdapter.getSelectors(state => state.cart);
+export const { selectAll, selectById } = cartAdapter.getSelectors(
+  (state) => state.cart
+);
 
 export const {
   populateCart,
@@ -79,4 +87,3 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
-

@@ -10,6 +10,8 @@ import { store } from "./store";
 import { router } from "./routes";
 import "./index.css";
 
+import 'react-toastify/dist/ReactToastify.css';
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const wishlistAdapter = createEntityAdapter();
 const initialState = wishlistAdapter.getInitialState();
@@ -21,8 +22,10 @@ const wishlistSlice = createSlice({
 
       if (!productExist) {
         wishlistAdapter.addOne(state, action.payload);
+        toast.success("The Product has been added to your wishlist");
       } else {
         wishlistAdapter.removeOne(state, action.payload.id);
+        toast.warn("The Product has been removed to your wishlist");
 
         localStorage.setItem("wishlistItems", JSON.stringify(state.entities));
       }
@@ -31,6 +34,7 @@ const wishlistSlice = createSlice({
     },
     removeFromWishlist(state, action) {
       wishlistAdapter.removeOne(state, action.payload.id);
+      toast.warn("The Product has been removed to your wishlist");
 
       localStorage.setItem("wishlistItems", JSON.stringify(state.entities));
     },
