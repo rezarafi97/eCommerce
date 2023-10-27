@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetAllCategoriesQuery } from "../../features/api/apiSlice";
 
-const Category = () => {
+const CategoryHome = () => {
   const {
     data: cate = [],
     isSuccess,
@@ -14,7 +14,7 @@ const Category = () => {
   if (isSuccess) {
     content = cate.map((c, index) => (
       <li key={index} className="lg:w-52">
-        <Link to="/" className="font-poppins text-xs md:text-base font-normal">
+        <Link to={`/allproducts/${c}`} className="font-poppins text-xs md:text-base font-normal capitalize">
           {c}
         </Link>
       </li>
@@ -30,4 +30,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryHome;

@@ -10,3 +10,4 @@ export { default as ProductDetail } from "./ProductDetail.jsx";
 export { default as SignUp } from "./SignUp.jsx";
 export { default as Wishlist } from "./Wishlist.jsx";
 export { default as AllProducts } from "./AllProducts.jsx";
+export { default as Catagory } from "./Catagory.jsx";

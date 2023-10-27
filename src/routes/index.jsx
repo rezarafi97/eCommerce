@@ -14,6 +14,7 @@ import {
   ProductDetail,
   Home,
   AllProducts,
+  Catagory,
 } from "../pages";
 
 export const router = createBrowserRouter([
@@ -68,13 +69,18 @@ export const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/productdetail",
+        path: "/productdetail/:productID",
         element: <ProductDetail />,
         errorElement: <Error />,
       },
       {
         path: "/allproducts",
         element: <AllProducts />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/allproducts/:catagory",
+        element: <Catagory />,
         errorElement: <Error />,
       },
     ],

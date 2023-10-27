@@ -1,4 +1,4 @@
-export { default as Category } from "./Category.jsx";
+export { default as CategoryHome } from "./CategoryHome.jsx";
 export { default as SliderLand } from "./SliderLand.jsx";
 export { default as TodaySale } from "./TodaySale.jsx";
 export { default as MonthSale } from "./MonthSale.jsx";

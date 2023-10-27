@@ -68,7 +68,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const {selectAll} = cartAdapter.getSelectors(state => state.cart);
+export const {selectAll, selectById} = cartAdapter.getSelectors(state => state.cart);
 
 export const {
   populateCart,

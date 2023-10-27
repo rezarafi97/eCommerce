@@ -1,18 +1,12 @@
 import PropTypes from "prop-types";
-import {
-  BsSuitHeart,
-  BsSuitHeartFill,
-  BsEye,
-  BsStarFill,
-} from "react-icons/bs";
+import { BsSuitHeart, BsSuitHeartFill, BsEye } from "react-icons/bs";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/reducers/cartSlice";
 
-import { useSelector } from "react-redux";
-import { selectWishlistById } from "../../features/reducers/wishlistSlice";
+import { selectWishlistById, addToWishlist } from "../../features/reducers/wishlistSlice";
+import { Link } from "react-router-dom";
 
-import { addToWishlist } from "../../features/reducers/wishlistSlice";
 
 const Card = ({ p, discount }) => {
   const badgeClass = "font-poppins text-white text-xs font-normal";
@@ -79,16 +73,17 @@ const Card = ({ p, discount }) => {
           {p.title}
         </h3>
         <div className="flex gap-3 my-2 font-poppins text-base font-medium">
-          <p className="text-red-600">${Math.floor(p.price * 80) / 100}</p>
-          <p className="line-through opacity-50">${p.price}</p>
+          {/* <p className="text-red-600">${Math.floor(p.price * 80) / 100}</p> */}
+          <p className="text-red-600">${p.price}</p>
+          {/* <p className="line-through opacity-50">${p.price}</p> */}
         </div>
-        <div className="flex gap-1">
-          <BsStarFill className="text-yellow-900" />
-          <BsStarFill className="text-yellow-900" />
-          <BsStarFill className="text-yellow-900" />
-          <BsStarFill className="text-yellow-900" />
-          <BsStarFill className="text-yellow-900" />
-          <p className="font-poppins text-sm font-semibold opacity-50">(50)</p>
+        <div>
+          <Link
+            to={`/productdetail/${p.id}`}
+            className="font-poppins text-sm font-normal"
+          >
+            View Product
+          </Link>
         </div>
       </div>
     </div>
