@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
-import { Card } from "../common";
+import { Card, Loading } from "../common";
 
 const ProductsList = ({
   text,
@@ -29,7 +29,7 @@ const ProductsList = ({
   let paginate;
 
   if (isLoading) {
-    content = <div>Loading...</div>;
+    content = <Loading />;
   } else if (isSuccess) {
     paginate = products.slice(index * 12, index * 12 + 12);
     content = paginate.map((p) => <Card p={p} key={p.id} discount={3} />);

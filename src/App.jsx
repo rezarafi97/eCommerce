@@ -18,7 +18,7 @@ const App = () => {
           theme="light"
         />
         <Navbar />
-        <Outlet />
+          <Outlet />
       </div>
       <Footer />
     </div>

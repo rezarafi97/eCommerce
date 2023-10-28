@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
+
 import { useGetProductQuery } from "../../features/api/apiSlice";
 
 const Product = ({ productId }) => {

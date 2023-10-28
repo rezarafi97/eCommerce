@@ -6,3 +6,4 @@ export { default as Timer } from "./Timer.jsx";
 export { default as Product } from "./Product.jsx";
 export { default as Advantage } from "./Advantage.jsx";
 export { default as Button } from "./Button.jsx";
+export { default as Loading } from "./Loading.jsx";

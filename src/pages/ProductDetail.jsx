@@ -13,6 +13,7 @@ import {
   selectById,
 } from "../features/reducers/cartSlice";
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
+import { Loading } from "../components/common";
 
 const ProductDetail = () => {
   const textClass = "font-poppins font-normal text-xs md:text-base";
@@ -44,7 +45,7 @@ const ProductDetail = () => {
   let content;
 
   if (isFetching) {
-    content = <p>Loading...</p>;
+    content = <Loading />;
   } else if (isSuccess) {
     content = (
       <div className="flex justify-around flex-col lg:flex-row items-center lg:items-start mt-20 mb-32">

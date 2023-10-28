@@ -2,6 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
 
 import { Link } from "react-router-dom";
+import { Loading } from "../common";
 
 const SliderLand = () => {
   const {
@@ -15,7 +16,7 @@ const SliderLand = () => {
   let content;
 
   if (isLoading) {
-    content = <div>Loading...</div>;
+    content = <Loading />;
   } else if (isSuccess) {
     content = products.map((p) => (
       <div className="w-full h-full flex" key={p.id}>
