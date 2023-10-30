@@ -1,4 +1,5 @@
-import { Title, Product } from "../common";
+import { Title } from "../common";
+import {Product } from "../product";
 
 const Featured = () => {
   return (

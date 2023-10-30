@@ -12,27 +12,27 @@ const FooterAccount = () => {
           </h3>
         </li>
         <li className="mb-4">
-          <Link to="/" className={linkClass}>
+          <Link to="/account" className={linkClass}>
             My Account
           </Link>
         </li>
         <li className="mb-4">
-          <Link to="/" className={linkClass}>
+          <Link to="/signup" className={linkClass}>
             Login/Register
           </Link>
         </li>
         <li className="mb-4">
-          <Link to="/" className={linkClass}>
+          <Link to="/cart" className={linkClass}>
             Cart
           </Link>
         </li>
         <li className="mb-4">
-          <Link to="/" className={linkClass}>
+          <Link to="/wishlist" className={linkClass}>
             Wishlist
           </Link>
         </li>
         <li>
-          <Link to="/" className={linkClass}>
+          <Link to="/allproducts" className={linkClass}>
             Shop
           </Link>
         </li>

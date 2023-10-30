@@ -73,9 +73,7 @@ const Card = ({ p, discount }) => {
           {p.title}
         </h3>
         <div className="flex gap-3 my-2 font-poppins text-base font-medium">
-          {/* <p className="text-red-600">${Math.floor(p.price * 80) / 100}</p> */}
           <p className="text-red-600">${p.price}</p>
-          {/* <p className="line-through opacity-50">${p.price}</p> */}
         </div>
         <div>
           <Link

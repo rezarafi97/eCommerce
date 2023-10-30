@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const FooterLinks = () => {
-  const listClass = "text-white text-base font-poppins font-normal mb-4";
+  const listClass = "text-white text-base font-poppins font-normal mb-4 cursor-pointer";
+
   return (
     <div>
       <ul>
@@ -9,7 +12,9 @@ const FooterLinks = () => {
         <li className={listClass}>Privacy Policy</li>
         <li className={listClass}>Terms Of Use</li>
         <li className={listClass}>FAQ</li>
-        <li className={listClass}>Contact</li>
+        <li className={listClass}>
+          <Link to="/contact">Contact</Link>
+        </li>
       </ul>
     </div>
   );

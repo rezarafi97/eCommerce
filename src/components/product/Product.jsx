@@ -34,7 +34,7 @@ const Product = ({ productId }) => {
               {product.description}
             </p>
           </div>
-          <Link to="/productdetail">
+          <Link to={`/productdetail/${productId}`}>
             <span className={shopClass}>Shop Now</span>
           </Link>
         </div>

@@ -24,31 +24,6 @@ export const apiSlice = createApi({
       query: (initialProductId) => `/products/${initialProductId}`,
       providesTags: (result, error, arg) => [{ type: "PRODUCT", id: arg }],
     }),
-    addNewProduct: builder.mutation({
-      query: (initialProduct) => ({
-        url: "/products",
-        method: "POST",
-        body: initialProduct,
-      }),
-      invalidatesTags: ["PRODUCT"],
-    }),
-    editProduct: builder.mutation({
-      query: (product) => ({
-        url: `/products/${product.id}`,
-        method: "PUT",
-        body: product,
-      }),
-      invalidatesTags: (result, error, arg) => [
-        { type: "PRODUCT", id: arg.id },
-      ],
-    }),
-    deleteProduct: builder.mutation({
-      query: (productId) => ({
-        url: `/products/${productId}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["PRODUCT"],
-    }),
     getAllCategories: builder.query({
       query: () => "/products/categories",
     }),
@@ -59,10 +34,5 @@ export const {
   useGetAllProductsQuery,
   useGetLimitedProductsQuery,
   useGetProductQuery,
-  useAddNewProductMutation,
-  useEditProductMutation,
-  useDeleteProductMutation,
   useGetAllCategoriesQuery,
-  useGetAllUsersQuery,
-  useAddNewUserMutation,
 } = apiSlice;

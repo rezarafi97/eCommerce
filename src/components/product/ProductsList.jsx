@@ -1,12 +1,18 @@
 import PropTypes from "prop-types";
 
-import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
+import {
+  GrLinkPrevious,
+  GrLinkNext,
+  GrLinkUp,
+  GrLinkDown,
+} from "react-icons/gr";
 import { Card, Loading } from "../common";
 
 const ProductsList = ({
   text,
   index,
   setIndex,
+  setSort,
   products,
   isLoading,
   isSuccess,
@@ -39,6 +45,8 @@ const ProductsList = ({
 
   const numClass =
     "cursor-pointer font-poppins text-base font-normal opacity-70";
+  const buttonClass =
+    "flex items-center border rounded py-1 px-2 bg-transparent text-black font-poppins text-xs font-normal text-opacity-70 cursor-pointer";
 
   return (
     <div>
@@ -48,6 +56,47 @@ const ProductsList = ({
         </p>
         <p className="font-poppins text-base font-normal">Page {index + 1}</p>
       </div>
+      <div>
+        <h3 className="font-poppins text-base font-normal">Sorting</h3>
+        <div className="flex gap-2 mt-4 mb-6">
+          <button
+            type="button"
+            onClick={() => setSort("")}
+            className={buttonClass}
+          >
+            Reset
+          </button>
+          <button
+            type="button"
+            onClick={() => setSort("ascendPrice")}
+            className={buttonClass}
+          >
+            <GrLinkUp /> Price
+          </button>
+          <button
+            type="button"
+            onClick={() => setSort("descendPrice")}
+            className={buttonClass}
+          >
+            <GrLinkDown /> Price
+          </button>
+          <button
+            type="button"
+            onClick={() => setSort("ascendName")}
+            className={buttonClass}
+          >
+            <GrLinkUp /> Name
+          </button>
+          <button
+            type="button"
+            onClick={() => setSort("descendName")}
+            className={buttonClass}
+          >
+            <GrLinkDown /> Name
+          </button>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {content}
       </div>
@@ -94,6 +143,7 @@ ProductsList.propTypes = {
   text: PropTypes.string,
   index: PropTypes.number,
   setIndex: PropTypes.func,
+  setSort: PropTypes.func,
   products: PropTypes.array,
   isLoading: PropTypes.bool,
   isSuccess: PropTypes.bool,

@@ -1,12 +1,7 @@
-import { useState } from "react";
-
 import { useGetLimitedProductsQuery } from "../../features/api/apiSlice";
 import { Card, Timer, Title, Button } from "../common";
 
-/* eslint-disable react/no-unescaped-entities */
 const TodaySale = () => {
-  const [timer, setTimer] = useState({});
-
   const {
     data: products = [],
     isLoading,
@@ -28,7 +23,7 @@ const TodaySale = () => {
   return (
     <div>
       <div>
-          <Title title="Today's" />
+        <Title title="Today's" />
         <div className="flex justify-between">
           <div className="flex gap-20">
             <div className="flex items-end">
@@ -36,7 +31,7 @@ const TodaySale = () => {
                 Flash Sales
               </p>
             </div>
-            <Timer timer={timer} setTimer={setTimer}  />
+            <Timer />
           </div>
         </div>
       </div>

@@ -1,11 +1,15 @@
-import { useEffect } from "react";
-import { intervalToDuration, endOfToday } from "date-fns";
-import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
-const Timer = ({ timer, setTimer }) => {
-  const titleClass = "font-poppins text-[0.5rem] md:text-[0.6rem] lg:text-xs font-medium";
+import { intervalToDuration, endOfToday } from "date-fns";
+
+const Timer = () => {
+  const [timer, setTimer] = useState({});
+
+  const titleClass =
+    "font-poppins text-[0.5rem] md:text-[0.6rem] lg:text-xs font-medium";
   const dotsClass = "text-red-500 text-lg md:text-xl lg:text-3xl font-black";
-  const timerClass = "font-inter text-xl md:text-2xl lg:text-4xl font-bold tracking-widest";
+  const timerClass =
+    "font-inter text-xl md:text-2xl lg:text-4xl font-bold tracking-widest";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,7 +22,7 @@ const Timer = ({ timer, setTimer }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -49,12 +53,6 @@ const Timer = ({ timer, setTimer }) => {
       </div>
     </div>
   );
-};
-
-Timer.propTypes = {
-  timer: PropTypes.object,
-  setTimer: PropTypes.func,
-  timerEnd: PropTypes.object,
 };
 
 export default Timer;

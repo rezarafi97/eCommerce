@@ -23,7 +23,7 @@ const SliderLand = () => {
         <div className="w-1/2 flex flex-col justify-around py-4">
           <h4 className="font-inter text-xl">{p.title}</h4>
           <div className="flex gap-2">
-            <Link to="/productdetail">
+            <Link to={`/productdetail/${p.id}`}>
               <span className="underline font-poppins text-xs underline-offset-8 font-medium">
                 Shop Now
               </span>

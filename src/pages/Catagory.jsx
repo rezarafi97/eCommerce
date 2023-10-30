@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 
 import { useGetAllProductsQuery } from "../features/api/apiSlice";
@@ -17,7 +17,10 @@ const Catagory = () => {
     error,
   } = useGetAllProductsQuery();
 
-  const filteredProducts = products.filter((p) => p.category === catagory);
+  const filteredProducts = useMemo(() => {
+    const filteredProducts = products.filter((p) => p.category === catagory);
+    return filteredProducts;
+  }, [products]);
 
   return (
     <div className="mt-20 mb-32">

@@ -1,13 +1,18 @@
-import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/reducers/cartSlice";
 
 import { useGetProductQuery } from "../../features/api/apiSlice";
-import { Button, Timer } from "../common";
+import { Timer } from "../common";
 
 const SpecialOffer = () => {
-  const [timer, setTimer] = useState({});
+  const dispatch = useDispatch();
 
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+  };
 
+  const buttonClass =
+    "my-6 md:my-10 lg:my-16 py-2 lg:py-4 px-8 lg:px-12 bg-red-700 text-white font-poppins text-xs lg:text-base font-medium rounded";
 
   const {
     data: product,
@@ -31,10 +36,14 @@ const SpecialOffer = () => {
           <p className="font-inter text-base md:text-xl lg:text-5xl font-semibold my-2 md:my-8">
             {product.title}
           </p>
-          <Timer timer={timer} setTimer={setTimer} />
-          <div className="my-6 md:my-10 lg:my-16 ">
-            <Button text="Buy Now!" />
-          </div>
+          <Timer />
+
+          <button
+            className={buttonClass}
+            onClick={() => handleAddToCart({ ...product, cartQty: 1 })}
+          >
+            Buy Now!
+          </button>
         </div>
         <div className="w-1/2">
           <img src={product.image} />
