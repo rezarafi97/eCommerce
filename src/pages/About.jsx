@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import WhyUs from "../components/home/WhyUs";
 
 const About = () => {
   const textClass = "font-poppins text-base font-normal mb-6 text-justify";
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  
   return (
     <div>
       <div className="lg:w-1/2 mb-32 mt-20">

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { useSelector } from "react-redux";
 import { selectWishlist } from "../features/reducers/wishlistSlice";
 
@@ -19,6 +21,10 @@ const Wishlist = () => {
   const handleRemoveFromWishlist = (item) => {
     dispatch(removeFromWishlist(item));
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="mt-20 mb-14">

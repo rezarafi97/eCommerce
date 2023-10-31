@@ -1,17 +1,19 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 
+import { useSelector, useDispatch } from "react-redux";
 import {
   selectWishlistById,
   addToWishlist,
 } from "../features/reducers/wishlistSlice";
-import { useGetProductQuery } from "../features/api/apiSlice";
 
+import { useGetProductQuery } from "../features/api/apiSlice";
 import {
   decreaseCart,
   addToCart,
   selectById,
 } from "../features/reducers/cartSlice";
+
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { Loading } from "../components/common";
 
@@ -41,6 +43,10 @@ const ProductDetail = () => {
   const handleDecreaseCart = (item) => {
     dispatch(decreaseCart(item));
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   let content;
 

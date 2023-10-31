@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Account = () => {
@@ -10,6 +11,10 @@ const Account = () => {
 
   const buttonClass =
     "px-12 py-4 bg-red-600 font-poppins text-base font-medium text-white";
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
 
   return (
     <div className="mt-20 mb-32 flex justify-between">

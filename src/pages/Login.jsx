@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
 import { loginSchema } from "../validation/loginValidation";
-import { useDispatch } from "react-redux";
 
+import { useDispatch } from "react-redux";
 import { login } from "../features/reducers/userSlice";
 
 const Login = () => {
@@ -13,6 +14,10 @@ const Login = () => {
 
   const inputClass =
     "border-b outline-0 border-gray-400 focus:border-gray-800 pl-4 pr-20 py-2";
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
 
   return (
     <div className="my-24">

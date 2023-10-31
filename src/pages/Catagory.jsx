@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { useGetAllProductsQuery } from "../features/api/apiSlice";
@@ -21,6 +21,10 @@ const Catagory = () => {
     const filteredProducts = products.filter((p) => p.category === catagory);
     return filteredProducts;
   }, [products]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="mt-20 mb-32">

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 import {
   GrLinkPrevious,
@@ -30,6 +31,10 @@ const ProductsList = ({
   const pageHandler = (item) => {
     setIndex(item);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [index]);
 
   let content;
   let paginate;
