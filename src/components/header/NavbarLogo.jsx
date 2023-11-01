@@ -4,7 +4,7 @@ const NavbarLogo = () => {
   return (
     <div>
       <Link
-        to="/"
+        to=""
         className="font-inter font-bold lg:text-2xl text-xl tracking-wider"
       >
         Exclusive

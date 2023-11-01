@@ -37,7 +37,7 @@ const Login = () => {
         onSubmit={() => {
           dispatch(login());
 
-          navigate("/");
+          navigate("");
         }}
         validationSchema={loginSchema}
       >
