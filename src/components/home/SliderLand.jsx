@@ -40,7 +40,7 @@ const SliderLand = () => {
   }
 
   return (
-    <div className="mt-10 ml-11 w-full h-80">
+    <div className="mt-10 ml-11 w-11/12 h-80">
       <Carousel
         prevArrow={() => null}
         nextArrow={() => null}

@@ -32,7 +32,7 @@ const Products = () => {
     <div>
       <Title title="Our Products" />
       <div className="mb-16">
-        <p className="font-inter text-xl md:text-4xl font-semibold tracking-widest">
+        <p className="font-inter text-base md:text-4xl font-semibold tracking-widest">
           Explore Our Products
         </p>
       </div>

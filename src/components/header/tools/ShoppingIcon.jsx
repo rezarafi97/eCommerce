@@ -14,7 +14,7 @@ const ShoppingIcon = ({ iconsClass, navigate }) => {
         onClick={() => navigate("/cart")}
       />
       {cart.length === 0 ? null : (
-        <div className="absolute left-[4.5rem] w-4 h-4 bg-red-600 text-center rounded-full">
+        <div className="absolute left-14 lg:left-[4.5rem] w-4 h-4 bg-red-600 text-center rounded-full">
           <p className="font-poppins text-xs font-normal text-white">
             {cart.length}
           </p>

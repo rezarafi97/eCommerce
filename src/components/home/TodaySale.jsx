@@ -27,7 +27,7 @@ const TodaySale = () => {
         <div className="flex justify-between">
           <div className="flex gap-20">
             <div className="flex items-end">
-              <p className="font-inter text-xl md:text-4xl font-semibold tracking-widest">
+              <p className="font-inter text-base md:text-4xl font-semibold tracking-widest">
                 Flash Sales
               </p>
             </div>

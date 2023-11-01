@@ -29,11 +29,11 @@ const Wishlist = () => {
   return (
     <div className="mt-20 mb-14">
       <div className="flex justify-between items-center">
-        <h2 className="font-poppins text-xl font-normal">
+        <h2 className="font-poppins text-sm md:text-lg lg:text-xl font-normal">
           Wishlist ({wishlist.length})
         </h2>
         <button
-          className="font-poppins text-base font-medium py-4 px-12 rounded border border-opacity-50 border-black"
+          className="font-poppins text-base font-medium py-1 px-4 lg:py-4 lg:px-12 rounded border border-opacity-50 border-black"
           onClick={() => {
             wishlist.map(handleAddToCart);
             wishlist.map(handleRemoveFromWishlist);

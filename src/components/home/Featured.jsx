@@ -7,7 +7,7 @@ const Featured = () => {
       <div className="mb-16">
         <Title title="Featured" />
         <div className="flex items-end">
-          <p className="font-inter text-xl md:text-4xl font-semibold tracking-widest">
+          <p className="font-inter text-base md:text-4xl font-semibold tracking-widest">
             New Arrival
           </p>
         </div>
