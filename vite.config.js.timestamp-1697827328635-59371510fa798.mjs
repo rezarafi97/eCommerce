@@ -2,8 +2,8 @@
 import { defineConfig } from "file:///D:/web%20designing/projects/react%20practicing%20project/React05/eCommerce%20web%20app/node_modules/vite/dist/node/index.js";
 import react from "file:///D:/web%20designing/projects/react%20practicing%20project/React05/eCommerce%20web%20app/node_modules/@vitejs/plugin-react/dist/index.mjs";
 var vite_config_default = defineConfig({
-  plugins: [react()]
-  base: "/eCommerce/",
+  plugins: [react()],
+  base: "/eCommerce",
 });
 export {
   vite_config_default as default
