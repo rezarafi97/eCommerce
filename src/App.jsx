@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { NavbarContainer } from "./components/navbar";
+import { NavbarContent } from "./components/navbar";
 
 import { Footer } from "./components/footer";
 import { ToastContainer } from "react-toastify";
@@ -17,7 +17,9 @@ const App = () => {
           pauseOnHover
           theme="light"
         />
-        <NavbarContainer />
+        <div className="after:block after:w-full after:h-px after:bg-black after:opacity-5">
+          <NavbarContent />
+        </div>
         <Outlet />
       </div>
       <Footer />

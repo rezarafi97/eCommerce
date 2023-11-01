@@ -1,4 +1,4 @@
-export { default as Navbar } from "./Navbar.jsx";
+export { default as NavbarContainer } from "./NavbarContainer.jsx";
 export { default as NavbarContent } from "./NavbarContent.jsx";
 export { default as NavbarLogo } from "./NavbarLogo.jsx";
 export { default as NavbarMenu } from "./NavbarMenu.jsx";
