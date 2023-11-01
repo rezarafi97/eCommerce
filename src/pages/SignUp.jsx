@@ -42,7 +42,7 @@ const SignUp = () => {
         onSubmit={() => {
           dispatch(login());
 
-          navigate("");
+          navigate("/");
         }}
       >
         <Form className="flex flex-col items-center gap-10 w-96 mx-auto mb-8">

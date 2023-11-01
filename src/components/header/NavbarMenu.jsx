@@ -11,7 +11,7 @@ const NavbarMenu = () => {
     <div className="hidden lg:flex xl:gap-12 lg:gap-6 place-items-center">
       <Navlink
         page="Home"
-        path=""
+        path="/"
         activeLink={activeLink}
         normalLink={normalLink}
         navClass={navClass}

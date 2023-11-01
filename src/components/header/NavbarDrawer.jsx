@@ -31,7 +31,7 @@ const NavbarDrawer = ({ open, closeDrawer }) => {
     content = cate.map((c, index) => (
       <div
         key={index}
-        className={location.pathname === "" ? "block" : "hidden"}
+        className={location.pathname === "/" ? "block" : "hidden"}
       >
         <Link to="" className="font-poppins text-xs md:text-base font-normal">
           {c}
